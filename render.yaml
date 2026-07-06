@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: telegram-otp-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT main:app
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        value: 8702149505:AAENrBg-Cj5fssUa3ZGQfitgDS2TPpHEB0w
+        sync: false
+      - key: TELEGRAM_GROUP_ID
+        value: -1004313947924
+        sync: false
+      - key: IVASMS_EMAIL
+        value: magentauzum30669@wshu.net
+        sync: false
+      - key: IVASMS_PASSWORD
+        value: '@ivas123'
+        sync: false
+      - key: SESSION_SECRET
+        value: 13aa59b651c6f58399f87f87031ae684886f3c8e2de58d7fa2037f0543c8bc8a
+        sync: false
+      - key: DATABASE_URL
+        value: sqlite:///bot.db
+      - key: DEBUG
+        value: "0"
